@@ -52,7 +52,9 @@
     </head>
 <body>
     <div id="root">
+        <button id="ball">Summon ball</button>
 <button id="save">Save</button>
+
 <button id="getsave">Load Saved Stuff</button>
 <input id="textX" placeholder="Ball x position" value="0">
 <input id="textY" placeholder="Ball y position" value="1">
@@ -69,6 +71,14 @@
                 }
             });
         }
+        document.getElementById("ball").addEventListener("click",()=>{
+            let spherea = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
+
+    spherea.position.y = 1;
+    spherea.position.x= 0;
+    spherea.position.z = 0;
+   
+        });
 var textX = document.getElementById("textX");
 var textY = document.getElementById("textY");
 var textZ = document.getElementById("textZ");
