@@ -6,22 +6,30 @@
         <title>Babylon.js sample code</title>
 
         <!-- Babylon.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
         <script src="https://assets.babylonjs.com/generated/Assets.js"></script>
         <script src="https://cdn.babylonjs.com/recast.js"></script>
         <script src="https://cdn.babylonjs.com/ammo.js"></script>
-        <script src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/havok/HavokPhysics_umd.js"></script>
         <script src="https://cdn.babylonjs.com/cannon.js"></script>
         <script src="https://cdn.babylonjs.com/Oimo.js"></script>
         <script src="https://cdn.babylonjs.com/earcut.min.js"></script>
         <script src="https://cdn.babylonjs.com/babylon.js"></script>
-        <script src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
-        <script src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
-        <script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
-        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
-        <script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
         <script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
-        <script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+        <script
+            src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
 
         <style>
             #root{
@@ -50,19 +58,29 @@
             }
         </style>
     </head>
-<body>
-    <div id="root">
-        <div id="___ytsubscribe_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: white; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 173px; height: 48px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 173px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 48px;" tabindex="0" vspace="0" width="100%" id="I0_1719709874263" name="I0_1719709874263" src="https://www.youtube.com/subscribe_embed?usegapi=1&amp;channelid=UCwEbSFbb4e7-XbAlcgmuTVw&amp;layout=full&amp;count=default&amp;origin=https%3A%2F%2Fblxcode.github.io&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.IKZeRvoAYNY.O%2Fam%3DAAAQ%2Fd%3D1%2Frs%3DAHpOoo-SMWTzMRJrTty6iE5dL_aWGYOnuw%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1719709874263&amp;_gfid=I0_1719709874263&amp;parent=https%3A%2F%2Fblxcode.github.io&amp;pfname=&amp;rpctoken=36642548" data-gapiattached="true"></iframe></div>
-        <button id="ball">Summon ball</button>
-<button id="save">Save</button>
+    <body>
+        <div id="root">
+            <div id="___ytsubscribe_0"
+                style="text-indent: 0px; margin: 0px; padding: 0px; background: white; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 173px; height: 48px;"><iframe
+                    ng-non-bindable frameborder="0" hspace="0" marginheight="0"
+                    marginwidth="0" scrolling="no"
+                    style="position: static; top: 0px; width: 173px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 48px;"
+                    tabindex="0" vspace="0" width="100%" id="I0_1719709874263"
+                    name="I0_1719709874263"
+                    src="https://www.youtube.com/subscribe_embed?usegapi=1&amp;channelid=UCwEbSFbb4e7-XbAlcgmuTVw&amp;layout=full&amp;count=default&amp;origin=https%3A%2F%2Fblxcode.github.io&amp;gsrc=3p&amp;ic=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.IKZeRvoAYNY.O%2Fam%3DAAAQ%2Fd%3D1%2Frs%3DAHpOoo-SMWTzMRJrTty6iE5dL_aWGYOnuw%2Fm%3D__features__#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh%2Conload&amp;id=I0_1719709874263&amp;_gfid=I0_1719709874263&amp;parent=https%3A%2F%2Fblxcode.github.io&amp;pfname=&amp;rpctoken=36642548"
+                    data-gapiattached="true"></iframe></div>
+            <button id="ball">Summon ball</button>
+            <button style="display:none;" hidden id="save">Save</button>
 
-<button id="getsave">Load Saved Stuff</button>
-<input id="textX" placeholder="Ball x position" value="0">
-<input id="textY" placeholder="Ball y position" value="1">
-<input id="textZ" placeholder="Ball z position" value="0">
-    </div>
-    <div id="canvasZone"><canvas style="image-rendering:pixelated;" id="renderCanvas"></canvas></div>
-    <script>
+            <button  
+            style="display:none;" id="getsave">Load Saved Stuff</button>
+            <input id="textX" placeholder="Ball x position" value="0">
+            <input id="textY" placeholder="Ball y position" value="1">
+            <input id="textZ" placeholder="Ball z position" value="0">
+        </div>
+        <div id="canvasZone"><canvas style="image-rendering:pixelated;"
+                id="renderCanvas"></canvas></div>
+        <script>
         var canvas = document.getElementById("renderCanvas");
 
         var startRenderLoop = function (engine, canvas) {
@@ -80,6 +98,7 @@
     spherea.position.z = 0;
    
         });
+        
 var textX = document.getElementById("textX");
 var textY = document.getElementById("textY");
 var textZ = document.getElementById("textZ");
@@ -93,7 +112,65 @@ var textZ = document.getElementById("textZ");
 
     // This creates and positions a free camera (non-mesh)
     const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 2, -10), scene);
+    scene.onKeyboardObservable.add((kbInfo) => {
+    
+		switch (kbInfo.type) {
+			case BABYLON.KeyboardEventTypes.KEYDOWN:
+				switch (kbInfo.event.key) {
+                    case "a":
+                    case "A":
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Left()));
+                    break
+                    case "d":
+                    case "D":
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Right()));
+                    break
+                    case "w":
+                    case "W":
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Forward()));
+                    break
+                    case "s":
+                    case "S":
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Backward()));
+                    break
+                    case " ":
 
+                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Up()));
+                    break
+                    case "c":
+                    case "C":
+                        camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Down()));
+              break
+              case "e":
+              case "E":
+              const box = BABYLON.MeshBuilder.CreateBox("box", {height: 1, width: 0.75, depth: 0.25});
+
+var mat = new BABYLON.StandardMaterial("bricks");
+mat.diffuseTexture = new BABYLON.Texture("textures/BrickTile.jpg");
+
+const pat = BABYLON.Mesh.FLIP_TILE;
+const av = BABYLON.Mesh.TOP;
+const ah = BABYLON.Mesh.LEFT;
+
+const options = {
+    sideOrientation: BABYLON.Mesh.DOUBLESIDE,
+    pattern: pat,
+    alignVertical: av,
+    alignHorizontal: ah,
+    width: 8,
+    height: 8,
+    depth: 8,
+    tileSize: 1,
+    tileWidth: 1
+}
+
+const tiledBox = BABYLON.MeshBuilder.CreateTiledBox("", options);
+tiledBox.material = mat;
+
+            }
+			break;
+		}
+	});
     // This targets the camera to scene origin
     camera.setTarget(BABYLON.Vector3.Zero());
 
@@ -139,7 +216,7 @@ sphere.position.z = Number(textZ.value);
     sphere.position.x= 0;
     sphere.position.z = 0;
    
-var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 50, width: 50, subdivisions: 4 }, scene);
+var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 9999, width: 9999, subdivisions: 99 }, scene);
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
     groundMaterial.diffuseTexture = new BABYLON.Texture("textures/grass.jpg", scene);
     groundMaterial.diffuseTexture.uScale = 30;
@@ -147,7 +224,7 @@ var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 50, width: 50,
     groundMaterial.specularColor = new BABYLON.Color3(.1, .1, .1);
     ground.material = groundMaterial;
 
-
+console.log(ground.getDirection(BABYLON.Vector3));
      light.intensity = 0.7;
 
      var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:100.0}, scene);
@@ -156,8 +233,10 @@ var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 50, width: 50,
 	skyboxMaterial.reflectionTexture = new BABYLON.CubeTexture("textures/skybox", scene);
 	skyboxMaterial.reflectionTexture.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
 	skyboxMaterial.diffuseColor = new BABYLON.Color3(0, 0, 0);
+    skybox.infiniteDistance = true;
 	skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 	skybox.material = skyboxMaterial;			
+
 	    
 	    
     
@@ -189,5 +268,5 @@ var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 50, width: 50,
             engine.resize();
         });
     </script>
-</body>
+    </body>
 </html>
