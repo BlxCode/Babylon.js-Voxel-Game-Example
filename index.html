@@ -222,17 +222,18 @@ sphere.position.z = Number(textZ.value);
     sphere.position.x= 0;
     sphere.position.z = 0;
    
-var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 9999, width: 9999, subdivisions: 99 }, scene);
+/*var ground = BABYLON.MeshBuilder.CreateGround("ground", { height: 9999, width: 9999, subdivisions: 99 }, scene);
     var groundMaterial = new BABYLON.StandardMaterial("groundMaterial", scene);
     groundMaterial.diffuseTexture = new BABYLON.Texture("textures/grass.jpg", scene);
     groundMaterial.diffuseTexture.uScale = 30;
     groundMaterial.diffuseTexture.vScale = 30;
     groundMaterial.specularColor = new BABYLON.Color3(.1, .1, .1);
-    ground.material = groundMaterial;
+    ground.material = groundMaterial;*/
+  
 var color = document.getElementById("color");
 
-console.log(ground.getDirection(BABYLON.Vector3));
-     light.intensity = 0.7;
+
+     light.intensity = 0.9;
 
      var skybox = BABYLON.MeshBuilder.CreateBox("skyBox", {size:100.0}, scene);
 	var skyboxMaterial = new BABYLON.StandardMaterial("skyBox", scene);
@@ -243,9 +244,20 @@ console.log(ground.getDirection(BABYLON.Vector3));
     skybox.infiniteDistance = true;
 	skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 	skybox.material = skyboxMaterial;			
+    var terrain = BABYLON.Mesh.CreateGroundFromHeightMap("terrain", "textures/heightMap.png", 99999, 99999, 100, 0, 10, scene, false);
 
-	    
-	    
+var terrainMaterial = new BABYLON.TerrainMaterial("terrainMaterial", scene);
+terrainMaterial.mixTexture = new BABYLON.Texture("texturemap.png", scene);
+terrainMaterial.diffuseTexture1 = new BABYLON.Texture("textures/grass.png", scene);
+terrainMaterial.diffuseTexture2 = new BABYLON.Texture("textures/stone.png", scene);
+terrainMaterial.diffuseTexture3 = new BABYLON.Texture("textures/water.png", scene);
+
+terrain.material = terrainMaterial;
+var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 99999, 99999,100, 0, 10, scene, false);
+	ground.position.y = -7.05;
+	ground.material = terrainMaterial;
+	  
+   
     
     return scene;
 };
