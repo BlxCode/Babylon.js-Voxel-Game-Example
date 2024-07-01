@@ -71,7 +71,7 @@
                     data-gapiattached="true"></iframe></div>
             <button id="ball">Summon ball</button>
             <button style="display:none;" hidden id="save">Save</button>
-
+ <input type="color" id="color">
             <button  
             style="display:none;" id="getsave">Load Saved Stuff</button>
             <input id="textX" placeholder="Ball x position" value="0">
@@ -112,6 +112,7 @@ var textZ = document.getElementById("textZ");
 
     // This creates and positions a free camera (non-mesh)
     const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 2, -10), scene);
+    var arc = new BABYLON.ArcRotateCamera("camera2", 0, 0, 1, BABYLON.Vector3.Zero());
     scene.onKeyboardObservable.add((kbInfo) => {
     
 		switch (kbInfo.type) {
@@ -119,56 +120,64 @@ var textZ = document.getElementById("textZ");
 				switch (kbInfo.event.key) {
                     case "a":
                     case "A":
-                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Left()));
+                   
+                    camera.position.x-=1;
                     break
                     case "d":
                     case "D":
-                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Right()));
+                    camera.position.x+=1;
+                 
+            
                     break
                     case "w":
                     case "W":
-                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Forward()));
+                    camera.position.z+=1;
+                    
                     break
                     case "s":
                     case "S":
-                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Backward()));
+                    camera.position.z-=1;
+                   
                     break
                     case " ":
-
-                    camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Up()));
-                    break
+                    camera.position.y+=1;
+                      break
                     case "c":
                     case "C":
-                        camera.position.addInPlace(camera.getDirection(BABYLON.Vector3.Down()));
+                    camera.position.y-=1;
+                   
               break
-              case "e":
-              case "E":
-              const box = BABYLON.MeshBuilder.CreateBox("box", {height: 1, width: 0.75, depth: 0.25});
+              case "B":
+              case "b":
+              var box = BABYLON.MeshBuilder.CreateBox("box", {height: 1, width: 1, depth: 1 });
 
-var mat = new BABYLON.StandardMaterial("bricks");
-mat.diffuseTexture = new BABYLON.Texture("textures/BrickTile.jpg");
-
-const pat = BABYLON.Mesh.FLIP_TILE;
-const av = BABYLON.Mesh.TOP;
-const ah = BABYLON.Mesh.LEFT;
-
-const options = {
-    sideOrientation: BABYLON.Mesh.DOUBLESIDE,
-    pattern: pat,
-    alignVertical: av,
-    alignHorizontal: ah,
-    width: 8,
-    height: 8,
-    depth: 8,
-    tileSize: 1,
-    tileWidth: 1
-}
-
-const tiledBox = BABYLON.MeshBuilder.CreateTiledBox("", options);
-tiledBox.material = mat;
+var mat = new BABYLON.StandardMaterial("boxMat");
+mat.diffuse = new BABYLON.Texture("https://colourlex.com/wp-content/uploads/2021/02/vine-black-painted-swatch-300x300.jpg.webp")
+var color = document.getElementById("color").value;
+console.log(color);
+var hex_color = document.getElementById('color').value
+                , rgb_color
+                , pattern_color = "^#([A-Fa-f0-9]{6})$";
+            if (hex_color.match(pattern_color)) {
+                var hex_color = hex_color.replace("#", "")
+                    , r = parseInt(hex_color.substring(0, 2), 16)
+                    , g = parseInt(hex_color.substring(2, 4), 16)
+                    , b = parseInt(hex_color.substring(4, 6), 16);
+                rgb_color = 'rgb(' + r + ',' + g + ',' + b + ')';
+            console.log(rgb_color);
+box.material = mat;
+console.log(camera);
+console.log(camera.getFrontPosition(0).x);
+console.log(camera.getFrontPosition(1));
+    box.position.x  = camera.getFrontPosition(0).x;
+    box.position.y  = camera.getFrontPosition(-1).y;
+    box.position.z  = camera.getFrontPosition(2).z;
+console.log(box.position.x);
 
             }
-			break;
+			break
+            case "k":
+            alert("hi");
 		}
 	});
     // This targets the camera to scene origin
@@ -178,7 +187,7 @@ tiledBox.material = mat;
     camera.attachControl(canvas, true);
 
     // This creates a light, aiming 0,1,0 - to the sky (non-mesh)
-    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 33, 33), scene);
+    const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 33, -33), scene);
 
     // Default intensity is 1. Let's dim the light a small amount
    
