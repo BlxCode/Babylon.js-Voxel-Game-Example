@@ -94,7 +94,7 @@
             let spherea = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
 
     spherea.position.y = 1;
-    spherea.position.x= 0;
+    spherea.position.x= 9;
     spherea.position.z = 0;
    
         });
@@ -111,8 +111,8 @@ var textZ = document.getElementById("textZ");
     const scene = new BABYLON.Scene(engine);
 
     // This creates and positions a free camera (non-mesh)
-    const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 2, -10), scene);
-    var arc = new BABYLON.ArcRotateCamera("camera2", 0, 0, 1, BABYLON.Vector3.Zero());
+    const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 4, -10), scene);
+    var arc = new BABYLON.ArcRotateCamera("camera2", 0, 4, 1, BABYLON.Vector3.Zero());
     scene.onKeyboardObservable.add((kbInfo) => {
     
 		switch (kbInfo.type) {
@@ -140,11 +140,17 @@ var textZ = document.getElementById("textZ");
                    
                     break
                     case " ":
+                        console.log(camera.position.y);
                     camera.position.y+=1;
                       break
                     case "c":
                     case "C":
-                    camera.position.y-=1;
+                    if(camera.position.y > 4){
+                     camera.position.y-=1;
+                }else{
+                    camera.position.y=4;
+                }
+                   
                    
               break
               case "B":
@@ -218,7 +224,7 @@ sphere.position.y = Number(textY.value);
     textZ.addEventListener("change",()=>{
 sphere.position.z = Number(textZ.value);
     });
-    sphere.position.y = 1;
+    sphere.position.y = 9;
     sphere.position.x= 0;
     sphere.position.z = 0;
    
@@ -244,19 +250,16 @@ var color = document.getElementById("color");
     skybox.infiniteDistance = true;
 	skyboxMaterial.specularColor = new BABYLON.Color3(0, 0, 0);
 	skybox.material = skyboxMaterial;			
-    var terrain = BABYLON.Mesh.CreateGroundFromHeightMap("terrain", "textures/heightMap.png", 99999, 99999, 100, 0, 10, scene, false);
+    var terrain = BABYLON.Mesh.CreateGroundFromHeightMap("terrain", "textures/heightMap.png", 100,100, 100, 0, 10, scene, false);
 
 var terrainMaterial = new BABYLON.TerrainMaterial("terrainMaterial", scene);
-terrainMaterial.mixTexture = new BABYLON.Texture("texturemap.png", scene);
+terrainMaterial.mixTexture = new BABYLON.Texture("textures/texturemap.png", scene);
 terrainMaterial.diffuseTexture1 = new BABYLON.Texture("textures/grass.png", scene);
 terrainMaterial.diffuseTexture2 = new BABYLON.Texture("textures/stone.png", scene);
 terrainMaterial.diffuseTexture3 = new BABYLON.Texture("textures/water.png", scene);
 
 terrain.material = terrainMaterial;
-var ground = BABYLON.Mesh.CreateGroundFromHeightMap("ground", "textures/heightMap.png", 99999, 99999,100, 0, 10, scene, false);
-	ground.position.y = -7.05;
-	ground.material = terrainMaterial;
-	  
+
    
     
     return scene;
